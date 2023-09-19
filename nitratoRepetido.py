@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import statistics
 from math import sqrt
 
-ug = [69.2, 41.69, 27.68, 13.48, 6.92, 1.38]
+ug = [69.2, 34.6, 17.3, 13.48, 8.65, 4.325]
 abs = [2.338, 2.116, 1.230, 0.623, 0.317, 0.132]
 xyValues = []
 xSquareValues = []
@@ -57,11 +57,11 @@ def calculusDSquare(round, m, b):
     return dSquareSumatory
 
 def calculusCurve(round, m, b):
-    while round < 50:
+    while round < (ug[0]):
         y = (m * (round)) + (b)
         equationAbs.append(y)
         axisX.append(round)
-        round = round + 1
+        round = round + 1.5
     return equationAbs
 
 def drawGraph(list, listTwo, m, b, sm, sb):
