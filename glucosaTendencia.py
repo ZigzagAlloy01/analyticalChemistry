@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import statistics
 from math import sqrt
 
-ug = [69.2, 41.69, 27.68, 13.48, 6.92, 1.38]
-abs = [2.39, 2.255, 1.466, 0.769, 0.400, 0.195]
+ug = [40, 20, 10, 5, 2.5, 1.25, 0.625, 0.3125]
+abs = [1.115, 0.88, 0.377, 0.306, 0.205, 0.15, 0.046, 0.012]
 xyValues = []
 xSquareValues = []
 dSquareValues = []
@@ -28,7 +28,7 @@ def main():
     print(f'La ecuación de la recta es: y = ({m:.4f} ± {sm:.6f} x) + ({b:.4f} ± {sb:.6f})')
     find = 0.973
     secret = (find - b) / m
-    print(f'La masa de la muestra problema, con absorbancia de {find} es de: {secret:.4f} µg.')
+    #print(f'La masa de la muestra problema, con absorbancia de {find} es de: {secret:.4f} µg.')
     return drawGraph(ug, abs, m, b, sm, sb)
 
 def calculusXY(round):
@@ -57,11 +57,11 @@ def calculusDSquare(round, m, b):
     return dSquareSumatory
 
 def calculusCurve(round, m, b):
-    while round < 50:
+    while round < (ug[0]):
         y = (m * (round)) + (b)
         equationAbs.append(y)
         axisX.append(round)
-        round = round + 1
+        round = round + (ug[0] * 0.04)
     return equationAbs
 
 def drawGraph(list, listTwo, m, b, sm, sb):
@@ -75,14 +75,14 @@ def drawGraph(list, listTwo, m, b, sm, sb):
          fontsize = 12, color ='black',
          ha ='right', va ='bottom',
          alpha = 0.7)
-    fig.text(0.9, 0.15, f'Ensayo realizado a 210 nm.',
+    fig.text(0.9, 0.15, f'Ensayo realizado a 540 nm.',
          fontsize = 12, color ='black',
          ha ='right', va ='top',
          alpha = 0.7)
     plt.grid(alpha =.6, linestyle ='--')
-    plt.title(f'Curva de Calibrado')
+    plt.title(f'Curva de Calibracion')
     plt.ylabel('Absorbancia')
-    plt.xlabel(f'Nitrato de Potasio (ppm)')
+    plt.xlabel(f'Glucosa (mM)')
     print(equationAbs)
     plt.show()
 
